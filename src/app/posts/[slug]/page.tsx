@@ -17,7 +17,7 @@ export default function PostPage({ params }: Props) {
 	if (!post) return notFound();
 
 	return (
-		<article className="prose prose-pink max-w-none">
+		<article className="prose prose-neutral max-w-none">
 			<p className="text-sm text-neutral-500">
 				{post.date} ・ {post.tags.join(', ')}
 			</p>
