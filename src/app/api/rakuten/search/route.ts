@@ -6,6 +6,7 @@ const ENDPOINT =
 export async function GET(req: Request) {
 	const { searchParams } = new URL(req.url);
 	const q = (searchParams.get('q') || '').trim();
+	const sort = searchParams.get('sort') || '';
 
 	if (!q) return NextResponse.json({ items: [] });
 
@@ -31,6 +32,8 @@ export async function GET(req: Request) {
 			'mediumImageUrls',
 		].join(','),
 	});
+
+	if (sort) params.set('sort', sort);
 
 	if (affiliateId.trim()) params.set('affiliateId', affiliateId.trim());
 
