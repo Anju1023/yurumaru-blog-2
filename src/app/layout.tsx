@@ -1,7 +1,7 @@
 // 画面の共通レイアウト。ヘッダー/フッター等をここに置く。
 // 子ページは {children} に差し込まれるよ。
-import Header from '@/components/layouts/header/Header';
 import './globals.css';
+import Header from '@/components/layouts/header/Header';
 import type { Metadata } from 'next';
 import Footer from '@/components/layouts/footer/Footer';
 
