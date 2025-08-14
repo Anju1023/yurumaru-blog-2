@@ -3,7 +3,6 @@
 import Header from '@/components/layouts/header/Header';
 import './globals.css';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import Footer from '@/components/layouts/footer/Footer';
 
 export const metadata: Metadata = {
