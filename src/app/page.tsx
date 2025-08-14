@@ -35,6 +35,8 @@ export default function HomePage() {
 					shopName="楽天ショップ A"
 					href="https://example.com/affiliate-url-a"
 					badge="送料無料"
+					rating={4.3}
+					reviewCount={128}
 				>
 					{/* childrenには自由に差し込める(なくてもOK) */}
 					<span className="text-xs text-neutral-500">高速充電・軽量タイプ</span>
@@ -46,6 +48,8 @@ export default function HomePage() {
 					shopName="楽天ショップ B"
 					imageUrl="https://picsum.photos/seed/b/600/600"
 					href="https://example.com/affiliate-url-b"
+					rating={3.6}
+					reviewCount={54}
 				/>
 
 				<ProductCard
@@ -53,6 +57,8 @@ export default function HomePage() {
 					price={1200}
 					shopName="楽天ショップ C"
 					// imageUrlをあえて渡さない
+					rating={0}
+					reviewCount={0}
 				/>
 			</div>
 		</div>

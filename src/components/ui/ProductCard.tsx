@@ -2,6 +2,7 @@
 // この部品は「ボタンを押す」などブラウザ側の動きがある前提なので付ける
 
 import React from 'react';
+import { StarRating } from './StarRating';
 
 // カードに渡すデータの型(最低限)
 // まずは楽天に限らず「商品」を表す共通型にしておくと後で差し替えが楽
@@ -13,6 +14,8 @@ export type ProductCardProps = {
 	href?: string; // 商品ページのURL
 	badge?: string; // バッジ(例: 送料無料/クーポン etc.)
 	children?: React.ReactNode; // 後で★評価や説明文を入れたいときに使える
+	rating?: number; // 評価(0~5)
+	reviewCount?: number; // レビュー件数
 };
 
 export default function ProductCard({
@@ -23,6 +26,8 @@ export default function ProductCard({
 	href,
 	badge,
 	children,
+	rating = 0,
+	reviewCount,
 }: ProductCardProps) {
 	const Wrapper: any = href ? 'a' : 'div';
 
@@ -66,6 +71,13 @@ export default function ProductCard({
 
 			{/* タイトル(2行で省略) */}
 			<h3 className="line-clamp-2 text-sm font-semibold">{title}</h3>
+
+			{/* ★ 星評価(rating or reviewCountがある時だけ見せる) */}
+			{(typeof rating === 'number' || typeof reviewCount === 'number') && (
+				<div>
+					<StarRating rating={rating ?? 0} count={reviewCount} size={16} />
+				</div>
+			)}
 
 			{/* 価格・ショップ名 */}
 			<div className="mt-1 text-sm">
