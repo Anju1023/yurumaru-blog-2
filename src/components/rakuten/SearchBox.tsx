@@ -29,8 +29,9 @@ export default function SearchBox() {
 			const data = await res.json();
 			if (!res.ok) throw new Error(data?.error || 'API Error');
 			setItems(data.items || []);
-		} catch (e) {
-			setErr('検索に失敗したみたい、、、、少し待って再実行してね；；');
+		} catch (e: any) {
+			const msg = e?.message || 'unknown';
+			setErr(`検索失敗: ${msg} (数秒待って再実行 or キーワード変更)`);
 			setItems([]);
 		} finally {
 			setLoading(false);
